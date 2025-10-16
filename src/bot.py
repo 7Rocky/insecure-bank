@@ -98,11 +98,29 @@ def verify():
 
 def report(url: str):
     client = get_client()
+    
+    client.get('http://127.0.0.1:5000/')
+    time.sleep(2)
 
+    login = client.find_element(By.NAME, 'login')
+    login.click()
+    time.sleep(2)
+
+    username = client.find_element(By.ID, 'username')
+    password = client.find_element(By.ID, 'password')
+    submit = client.find_element(By.ID, 'submit')
+    username.send_keys(ADMIN_USERNAME)
+    password.send_keys(get_password(ADMIN_USERNAME))
+    submit.click()
+    time.sleep(2)
+
+    # Quiero que mi cookie de sesión sea segura frente a ataques de XSS...
+    client.add_cookie({'name': 'session', 'value': client.get_cookie('session').get('value'), 'httpOnly': True})
+
+    # No sé qué quieres que haga con esta URL de búsqueda...
     client.get(url)
     time.sleep(2)
 
-    # No sé qué quieres que haga con esta URL de búsqueda...
     # Yo no veo nada...
     # Me vuelvo a mi perfil...
 
