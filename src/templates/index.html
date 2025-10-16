@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="bg-blue-700 text-white py-20">
+  <div class="container mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Bienvenido a Insecure Bank</h1>
+    <p class="text-lg md:text-xl mb-8">Gestiona tu dinero ficticio de manera segura y divertida. Transfiere, ahorra y explora nuestro sistema bancario de prueba.</p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="{{ url_for('login') }}" class="bg-white text-blue-700 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">Iniciar sesión</a>
+      <a href="{{ url_for('register') }}" class="border border-white px-6 py-3 rounded font-semibold hover:bg-white hover:text-blue-700 transition text-white">Registrarse</a>
+    </div>
+  </div>
+</section>
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-12">Nuestros Servicios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-white rounded shadow p-6 hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Transferencias</h3>
+        <p>Envía dinero ficticio a otros usuarios de manera instantánea y segura.</p>
+      </div>
+      <div class="bg-white rounded shadow p-6 hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Gestión de cuentas</h3>
+        <p>Administra tu perfil, cambia tu biografía y controla tu balance de manera sencilla.</p>
+      </div>
+      <div class="bg-white rounded shadow p-6 hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Panel de administrador</h3>
+        <p>Para administradores: verifica cuentas y gestiona el balance de los usuarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-blue-600 text-white py-16">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4 text-white">Empieza ahora</h2>
+    <p class="mb-6">Crea tu cuenta gratuita y comienza a explorar nuestro banco simulado.</p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="{{ url_for('login') }}" class="bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">Iniciar sesión</a>
+      <a href="{{ url_for('register') }}" class="border border-white px-6 py-3 rounded font-semibold hover:bg-white hover:text-blue-600 transition text-white">Registrarse</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

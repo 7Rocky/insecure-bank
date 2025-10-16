@@ -1,0 +1,6 @@
+flask
+flask_login
+flask_sqlalchemy
+flask_wtf
+selenium==4.14.0
+wtforms
