@@ -1,6 +1,6 @@
 import time
 
-from selenium.webdriver import Chrome, ChromeOptions
+from selenium.webdriver import Chrome, ChromeOptions, ChromeService
 from selenium.webdriver.common.by import By
 
 
@@ -13,7 +13,7 @@ def get_password(username: str) -> str:
         return f.read()
 
 
-def get_client() -> Chrome:
+def get_client():
     chrome_options = ChromeOptions()
 
     chrome_options.add_argument('--headless')
@@ -32,7 +32,7 @@ def get_client() -> Chrome:
     chrome_options.add_argument('--safebrowsing-disable-auto-update')
     chrome_options.add_argument('--js-flags=--noexpose_wasm,--jitless')
 
-    client = Chrome(chrome_options)
+    client = Chrome(options=chrome_options, service=ChromeService(executable_path='/usr/bin/chromedriver'))
     client.set_page_load_timeout(5)
     client.set_script_timeout(5)
 
